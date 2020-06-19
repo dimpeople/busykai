@@ -52,7 +52,7 @@ public class RandomPatrol : MonoBehaviour
 
     Vector2 RandomBorderPosition()
     {
-        switch (Random.Range(0,30) / 10)
+        switch (Random.Range(0,39) / 10)
         {
             case 0:
                 return new Vector2(minX, Random.Range(minY, maxY));
