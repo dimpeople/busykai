@@ -4,8 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Floatie
   - Base
+  - Banner
+  - Meteor
   layers:
   - Default
   - TransparentFX
