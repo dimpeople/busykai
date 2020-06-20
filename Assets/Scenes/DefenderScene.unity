@@ -123,6 +123,30 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &402834169 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 903059359848572364, guid: 9e28b5233f6a30249a0df409081fcb55, type: 3}
+  m_PrefabInstance: {fileID: 659329441}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &402834175
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 402834169}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a79dbf89fdbff7a4caed24a46e27a81f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,8 +274,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MeteorPrefab: {fileID: 201662671318663761, guid: 8721a564d7632eb46ad5fc9c011b7939, type: 3}
-  SpawnLimit: 7
-  SpawnIntervalSeconds: 2
+  SpawnLimit: 10
+  SpawnIntervalSeconds: 1
 --- !u!1001 &659329441
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -259,6 +283,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 903059359848572353, guid: 9e28b5233f6a30249a0df409081fcb55, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1e97b1fc95de82a4194958b86fa44316, type: 3}
     - target: {fileID: 903059359848572354, guid: 9e28b5233f6a30249a0df409081fcb55, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -303,9 +331,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 903059359848572354, guid: 9e28b5233f6a30249a0df409081fcb55, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5897057
+      objectReference: {fileID: 0}
+    - target: {fileID: 903059359848572354, guid: 9e28b5233f6a30249a0df409081fcb55, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5897057
+      objectReference: {fileID: 0}
+    - target: {fileID: 903059359848572354, guid: 9e28b5233f6a30249a0df409081fcb55, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5897057
+      objectReference: {fileID: 0}
     - target: {fileID: 903059359848572364, guid: 9e28b5233f6a30249a0df409081fcb55, type: 3}
       propertyPath: m_Name
       value: Homeland
+      objectReference: {fileID: 0}
+    - target: {fileID: 903059359848572367, guid: 9e28b5233f6a30249a0df409081fcb55, type: 3}
+      propertyPath: m_Radius
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5515112272881208866, guid: 9e28b5233f6a30249a0df409081fcb55, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 402834175}
+    - target: {fileID: 5515112272881208866, guid: 9e28b5233f6a30249a0df409081fcb55, type: 3}
+      propertyPath: Health
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e28b5233f6a30249a0df409081fcb55, type: 3}
