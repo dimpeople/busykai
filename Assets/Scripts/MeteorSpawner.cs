@@ -35,6 +35,7 @@ public class MeteorSpawner : MonoBehaviour
     {
         var meteor = Instantiate(MeteorPrefab);
         meteor.transform.parent = this.gameObject.transform;
+        SoundManager.PlaySound("meteorInit");
         //Debug.Log("Spawner: Spawned " + transform.childCount);
     }
 }

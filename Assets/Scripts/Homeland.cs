@@ -10,6 +10,7 @@ public class Homeland : MonoBehaviour
     void Start()
     {
         //Debug.Log("Homeland: Start");
+        SoundManager.PlaySound("homelandIdle");
     }
 
     // Update is called once per frame
@@ -28,12 +29,16 @@ public class Homeland : MonoBehaviour
         if (Health <= 0)
         {
             Die();
+        } else
+        {
+            SoundManager.PlaySound("homelandHit");
         }
     }
 
     private void Die()
     {
         Debug.Log("Homeland: Die");
+        SoundManager.PlaySound("homelandDeath");        
         Destroy(gameObject);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);        
     }
@@ -42,5 +47,6 @@ public class Homeland : MonoBehaviour
     {
         Debug.Log("Hit animation: End");
         animator.SetBool("IsHit", false);
+        SoundManager.PlaySound("homelandIdle");
     }
 }

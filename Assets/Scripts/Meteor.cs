@@ -4,6 +4,8 @@ public class Meteor : MonoBehaviour
 {
     public float Speed;
     public int HitDamage;
+    public Animator animator;
+    public bool isHit = false;
 
     public float MinX;
     public float MaxX;
@@ -11,6 +13,7 @@ public class Meteor : MonoBehaviour
     public float MaxY;
     private Vector2 _targetPosition;
     private float _spawnDelta = 0.1f;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -25,18 +28,23 @@ public class Meteor : MonoBehaviour
             || transform.position.y >= MaxY || transform.position.y <= MinY) {
             //Debug.Log($"Meteor: reached border at ({transform.position.x},{transform.position.y})");
             //Debug.Log($"Meteor: border at ({MinX},{MinY},{MaxX},{MaxY})");
-            Die();
+            Destroy(gameObject);
         } else
         {
-            transform.position = Vector2.MoveTowards(transform.position, _targetPosition, Speed * Time.deltaTime);
+            if (!isHit) {
+                transform.position = Vector2.MoveTowards(transform.position, _targetPosition, Speed * Time.deltaTime);
+            }
+            
             //Debug.Log($"Meteor: moved to ({transform.position.x},{transform.position.y})");
         }        
     }
 
     void OnTriggerEnter2D(Collider2D hit)
     {
+        SoundManager.PlaySound("meteorHit");
+        isHit = true;
         if (hit.CompareTag("Base"))
-        {
+        {            
             //Debug.Log("Meteor: hit a base");
             hit.GetComponent<Homeland>().TakeHit(HitDamage);
             Die();
@@ -59,7 +67,7 @@ public class Meteor : MonoBehaviour
     void Die()
     {
         //Debug.Log("Meteor: Died");
-        Destroy(gameObject);
+        animator.SetBool("IsHit", true);
     }
 
     Vector2 RandomBorderPosition()
@@ -95,5 +103,11 @@ public class Meteor : MonoBehaviour
         {
             return new Vector2(Random.Range(MinX, MaxX), MinY);
         }
+    }
+
+    public void OnHitAnimationEnded()
+    {
+        animator.SetBool("IsHit", false);
+        Destroy(gameObject);
     }
 }
